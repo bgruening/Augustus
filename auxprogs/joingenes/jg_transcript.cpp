@@ -1450,7 +1450,7 @@ void txCoexBact(list<Transcript*> &overlap, Properties &properties){
     list<Transcript*>::iterator itInside = it;
     itInside++;
     while (itInside != overlap.end()){
-      if (!((*it), (*itInside)) || (*it)->strand != (*itInside)->strand || ((*it)->parent == (*itInside)->parent && (*it)->originalId != (*itInside)->originalId) || (*it)->tes != (*itInside)->tes){
+      if (!overlappingCdsWithAnything((*it), (*itInside)) || (*it)->strand != (*itInside)->strand || ((*it)->parent == (*itInside)->parent && (*it)->originalId != (*itInside)->originalId) || (*it)->tes != (*itInside)->tes){
 	(*it)->consistent.push_back((*itInside)->t_id);
 	(*itInside)->consistent.push_back((*it)->t_id);
       }
@@ -1492,7 +1492,7 @@ void selection(list<Transcript*> &overlap, Properties &properties){
 
   search_n_destroy_doublings(overlap, properties, false);
 
-  // delete transcripts that belong to input files with priorities that sho‎uld be suppressed
+  // delete transcripts that belong to input files with priorities that should be suppressed
   for (list<Transcript*>::iterator it = overlap.begin(); it != overlap.end(); it++){
     if (find(properties.supprList.begin(),properties.supprList.end(),(*it)->priority) != properties.supprList.end()){
       deleteTx(*it, properties);
