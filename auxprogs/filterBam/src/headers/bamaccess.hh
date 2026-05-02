@@ -3,8 +3,10 @@
 #define _BAMACCESS_HH
 
 #include <algorithm>
+#include <cstdint>
 #include <functional>
 #include <iostream>
+#include <string>
 #include <vector>
 #include <memory>
 
