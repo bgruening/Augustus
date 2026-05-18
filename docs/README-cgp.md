@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/Gaius-Augustus/Augustus.svg?branch=master)](https://travis-ci.org/Gaius-Augustus/Augustus)
-
 # Gene Prediction with AUGUSTUS in comparative gene prediction (cgp) mode
   genes are predicted simultaneously in several aligned genomes
 
